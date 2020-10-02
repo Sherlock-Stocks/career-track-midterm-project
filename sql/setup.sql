@@ -17,7 +17,7 @@ CREATE TABLE stocks (
   "start_date" TEXT NOT NULL,
   end_date TEXT NOT NULL,
   frequency TEXT NOT NULL,
-  fee_percent TEXT NOT NULL,
+  fee_percent INT NOT NULL,
   buy_condition TEXT NOT NULL,
   buy_unit TEXT NOT NULL,
   buy_amount INT NOT NULL,
