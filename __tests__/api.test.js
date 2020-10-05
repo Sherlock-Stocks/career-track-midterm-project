@@ -10,7 +10,5 @@ describe('api-calls routes', () => {
         endDate: '2020/02/01',
         frequency: '1day'
       });
-
-    await console.log(apiCall.body.values);
   });
 });
