@@ -1,12 +1,12 @@
-const fs = require('fs');
-const pool = require('../lib/utils/pool');
+// const fs = require('fs');
+// const pool = require('../lib/utils/pool');
 const { getAgent } = require('../data/data_helper');
-const { users, stocks } = require('../data/seed');
-const request = require('supertest');
+// const { users, stocks } = require('../data/seed');
+// const request = require('supertest');
 // const app = require('../lib/app');
 
 describe('Stock routes', () => {
-  it('creates a new user and stock', async () => {
+  it('creates a new user and stock', async() => {
     const response = await getAgent()
       .post('/api/v1/stocks')
       .send({
@@ -23,7 +23,7 @@ describe('Stock routes', () => {
         sellCondition: 'runningAverage',
         sellUnit: 'U$',
         sellAmount: 20,
-      })
+      });
 
     expect(response.body).toEqual({
       userId: expect.any(String),
