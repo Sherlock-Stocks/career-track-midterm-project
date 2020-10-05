@@ -6,7 +6,7 @@ const { getAgent } = require('../data/data_helper');
 // const app = require('../lib/app');
 
 describe('Stock routes', () => {
-  it('creates a new user and stock', async () => {
+  it('creates a new user and stock', async() => {
     const response = await getAgent()
       .post('/api/v1/stocks')
       .send({
@@ -44,9 +44,9 @@ describe('Stock routes', () => {
     });
   });
 
-  it('finds a stock by id', async () => {
+  it('finds a stock by id', async() => {
     const response = await getAgent()
-      .get('/api/v1/stocks/1')
+      .get('/api/v1/stocks/1');
 
     expect(response.body).toEqual({
       userId: '1',
@@ -64,12 +64,12 @@ describe('Stock routes', () => {
       sellCondition: 'runningAverage',
       sellUnit: 'U$',
       sellAmount: 20,
-    })
+    });
   });
 
-  it('finds stock by user id', async () => {
+  it('finds stock by user id', async() => {
     const response = await getAgent()
-      .get('/api/v1/stocks/portfolio/1')
+      .get('/api/v1/stocks/portfolio/1');
 
     expect(response.body).toEqual({
       userId: expect.any(String),
@@ -90,7 +90,7 @@ describe('Stock routes', () => {
     });
   });
 
-  it('updates a stock', async () => {
+  it('updates a stock', async() => {
     const response = await getAgent()
       .put('/api/v1/stocks/1')
       .send({
@@ -128,9 +128,9 @@ describe('Stock routes', () => {
     });
   });
 
-  it('deletes a stock', async () => {
+  it('deletes a stock', async() => {
     const response = await getAgent()
-      .delete('/api/v1/stocks/1')
+      .delete('/api/v1/stocks/1');
 
     expect(response.body).toEqual({
       userId: expect.any(String),
