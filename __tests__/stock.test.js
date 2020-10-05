@@ -6,7 +6,7 @@ const { getAgent } = require('../data/data_helper');
 // const app = require('../lib/app');
 
 describe('Stock routes', () => {
-  it('creates a new user and stock', async() => {
+  it('creates a new user and stock', async () => {
     const response = await getAgent()
       .post('/api/v1/stocks')
       .send({
@@ -65,5 +65,28 @@ describe('Stock routes', () => {
       sellUnit: 'U$',
       sellAmount: 20,
     })
+  });
+
+  it('finds stock by user id', async () => {
+    const response = await getAgent()
+      .get('/api/v1/stocks/portfolio/1')
+
+    expect(response.body).toEqual({
+      userId: expect.any(String),
+      stockId: expect.any(String),
+      ticker: 'IBM',
+      riskChoice: 'R0',
+      startingAmount: 500,
+      startDate: '1-1-2020',
+      endDate: '3-30-2020',
+      frequency: 'TIME_SERIES_DAILY',
+      feePercent: 4,
+      buyCondition: 'runningAverage',
+      buyUnit: 'U$',
+      buyAmount: 50,
+      sellCondition: 'runningAverage',
+      sellUnit: 'U$',
+      sellAmount: 20,
+    });
   });
 });
