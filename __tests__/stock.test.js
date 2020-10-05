@@ -89,4 +89,42 @@ describe('Stock routes', () => {
       sellAmount: 20,
     });
   });
+
+  it('updates a stock', async () => {
+    const response = await getAgent()
+      .put('/api/v1/stocks/1')
+      .send({
+        ticker: 'IBM',
+        riskChoice: 'R0',
+        startingAmount: 500,
+        startDate: '1-1-2020',
+        endDate: '3-30-2020',
+        frequency: 'TIME_SERIES_DAILY',
+        feePercent: 4,
+        buyCondition: 'runningAverage',
+        buyUnit: 'U$',
+        buyAmount: 70,
+        sellCondition: 'runningAverage',
+        sellUnit: 'U$',
+        sellAmount: 50,
+      });
+
+    expect(response.body).toEqual({
+      userId: expect.any(String),
+      stockId: expect.any(String),
+      ticker: 'IBM',
+      riskChoice: 'R0',
+      startingAmount: 500,
+      startDate: '1-1-2020',
+      endDate: '3-30-2020',
+      frequency: 'TIME_SERIES_DAILY',
+      feePercent: 4,
+      buyCondition: 'runningAverage',
+      buyUnit: 'U$',
+      buyAmount: 70,
+      sellCondition: 'runningAverage',
+      sellUnit: 'U$',
+      sellAmount: 50,
+    });
+  });
 });
