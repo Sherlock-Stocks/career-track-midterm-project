@@ -18,4 +18,5 @@ jobs:
       env:
         CI: true
         DATABASE_URL: postgres://alchemy:alchemy@postgres:5432/alchemy
-        
+        APP_SECRET=our_whispering_snakecase_secretsss
+        SALT_ROUNDS=4
