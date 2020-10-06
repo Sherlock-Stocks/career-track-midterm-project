@@ -26,7 +26,7 @@ beforeEach(() => {
   return agent
     .post('/api/v1/stocks')
     .send({
-      ticker: 'IBM',
+      ticker: 'NIKE',
       riskChoice: 'R0',
       startingAmount: 500,
       startDate: '1-1-2020',

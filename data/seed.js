@@ -1,7 +1,7 @@
 const UserService = require('../lib/services/user-service');
 const Stock = require('../lib/models/stock');
 
-module.exports = async({ userCount = 5, stockCount = 5 } = {}) => {
+module.exports = async({ userCount = 5, stockCount = 10 } = {}) => {
   const users = await Promise.all([...Array(userCount)].map((_, i) => {
     return UserService.create({
       email: `test${i + 1}@test.com`,
@@ -12,7 +12,7 @@ module.exports = async({ userCount = 5, stockCount = 5 } = {}) => {
 
   const stocks = await Promise.all([...Array(stockCount)].map((_, i) => {
     return Stock.insert({
-      userId: `${ i + 1 }`,
+      userId: `${ Math.floor(i / 2) + 1 }`,
       ticker: 'IBM',
       riskChoice: 'R0', //R0, R1, R2, R3
       startingAmount: 500,

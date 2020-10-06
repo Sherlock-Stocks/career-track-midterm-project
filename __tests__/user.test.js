@@ -66,7 +66,6 @@ describe('Auth routes', () => {
       portfolio: [{}]
     });
 
-
     const responseWithoutAUser = await request(app)
       .get('/api/v1/auth/verify');
 

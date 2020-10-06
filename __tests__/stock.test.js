@@ -1,6 +1,8 @@
+const data_helper = require('../data/data_helper');
 // const fs = require('fs');
 // const pool = require('../lib/utils/pool');
 const { getAgent } = require('../data/data_helper');
+require('../data/data_helper');
 // const { users, stocks } = require('../data/seed');
 // const request = require('supertest');
 // const app = require('../lib/app');
@@ -50,7 +52,7 @@ describe('Stock routes', () => {
 
     expect(response.body).toEqual({
       userId: expect.any(String),
-      stockId: '1',
+      stockId: expect.any(String),
       ticker: 'IBM',
       riskChoice: 'R0',
       startingAmount: 500,
@@ -70,8 +72,7 @@ describe('Stock routes', () => {
   it('finds stock by user id', async() => {
     const response = await getAgent()
       .get('/api/v1/stocks/portfolio/1');
-
-    expect(response.body).toEqual({
+    expect(response.body).toEqual([{
       userId: expect.any(String),
       stockId: expect.any(String),
       ticker: 'IBM',
@@ -87,7 +88,25 @@ describe('Stock routes', () => {
       sellCondition: 'runningAverage',
       sellUnit: 'U$',
       sellAmount: 20,
-    });
+    },
+    {
+      userId: expect.any(String),
+      stockId: expect.any(String),
+      ticker: 'IBM',
+      riskChoice: 'R0',
+      startingAmount: 500,
+      startDate: '1-1-2020',
+      endDate: '3-30-2020',
+      frequency: 'TIME_SERIES_DAILY',
+      feePercent: 4,
+      buyCondition: 'runningAverage',
+      buyUnit: 'U$',
+      buyAmount: 50,
+      sellCondition: 'runningAverage',
+      sellUnit: 'U$',
+      sellAmount: 20,
+    }
+    ]);
   });
 
   it('updates a stock', async() => {
