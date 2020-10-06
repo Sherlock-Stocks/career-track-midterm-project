@@ -62,7 +62,8 @@ describe('Auth routes', () => {
     expect(response.body).toEqual({
       userId: expect.any(String),
       email: 'test@test.com',
-      phoneNumber: '7078675309'
+      phoneNumber: '7078675309',
+      portfolioArray: [{}]
     });
 
     const responseWithoutAUser = await request(app)
