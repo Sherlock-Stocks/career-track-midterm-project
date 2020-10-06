@@ -18,7 +18,7 @@ module.exports = async({ userCount = 5, stockCount = 5 } = {}) => {
       startingAmount: 500,
       startDate: '1-1-2020',
       endDate: '3-30-2020',
-      frequency: 'TIME_SERIES_DAILY', //TIME_SERIES_INTRADAY_EXTENDED(interval), TIME_SERIES_DAILY, week, month, year
+      frequency: 'TIME_SERIES_DAILY', //TIME_SERIES_INTRADAY_EXTENDED(interval), TIME_SERIES_DAILY, day, week, month, year
       feePercent: 4,
       buyCondition: 'runningAverage', //runningAverage, amount
       buyUnit: 'U$', //U$, U%

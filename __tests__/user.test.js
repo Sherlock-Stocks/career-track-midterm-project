@@ -58,13 +58,14 @@ describe('Auth routes', () => {
 
     const response = await agent
       .get('/api/v1/auth/verify');
-
+    
     expect(response.body).toEqual({
       userId: expect.any(String),
       email: 'test@test.com',
       phoneNumber: '7078675309',
-      portfolioArray: [{}]
+      portfolio: [{}]
     });
+
 
     const responseWithoutAUser = await request(app)
       .get('/api/v1/auth/verify');

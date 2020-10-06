@@ -49,7 +49,7 @@ describe('Stock routes', () => {
       .get('/api/v1/stocks/1');
 
     expect(response.body).toEqual({
-      userId: '1',
+      userId: expect.any(String),
       stockId: '1',
       ticker: 'IBM',
       riskChoice: 'R0',
