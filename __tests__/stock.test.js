@@ -14,9 +14,9 @@ describe('Stock routes', () => {
         ticker: 'IBM',
         riskChoice: 'R0',
         startingAmount: 500,
-        startDate: '1-1-2020',
-        endDate: '3-30-2020',
-        frequency: 'TIME_SERIES_DAILY',
+        startDate: '2020/02/01',
+        endDate: '2020/03/01',
+        frequency: '1day',
         feePercent: 4,
         buyCondition: 'runningAverage',
         buyUnit: 'U$',
@@ -32,9 +32,9 @@ describe('Stock routes', () => {
       ticker: 'IBM',
       riskChoice: 'R0',
       startingAmount: 500,
-      startDate: '1-1-2020',
-      endDate: '3-30-2020',
-      frequency: 'TIME_SERIES_DAILY',
+      startDate: '2020/02/01',
+      endDate: '2020/03/01',
+      frequency: '1day',
       feePercent: 4,
       buyCondition: 'runningAverage',
       buyUnit: 'U$',
@@ -45,28 +45,28 @@ describe('Stock routes', () => {
     });
   });
 
-  // it('finds a stock by id', async() => {
-  //   const response = await getAgent()
-  //     .get('/api/v1/stocks/1');
+  it('finds a stock by id', async() => {
+    const response = await getAgent()
+      .get('/api/v1/stocks/1');
 
-  //   expect(response.body).toEqual({
-  //     userId: expect.any(String),
-  //     stockId: expect.any(String),
-  //     ticker: 'IBM',
-  //     riskChoice: 'R0',
-  //     startingAmount: 500,
-  //     startDate: '1-1-2020',
-  //     endDate: '3-30-2020',
-  //     frequency: 'TIME_SERIES_DAILY',
-  //     feePercent: 4,
-  //     buyCondition: 'runningAverage',
-  //     buyUnit: 'U$',
-  //     buyAmount: 50,
-  //     sellCondition: 'runningAverage',
-  //     sellUnit: 'U$',
-  //     sellAmount: 20,
-  //   });
-  // });
+    expect(response.body).toEqual({
+      userId: expect.any(String),
+      stockId: expect.any(String),
+      ticker: 'IBM',
+      riskChoice: 'R0',
+      startingAmount: 500,
+      startDate: '2020/02/01',
+      endDate: '2020/03/01',
+      frequency: '1day',
+      feePercent: 4,
+      buyCondition: 'runningAverage',
+      buyUnit: 'U$',
+      buyAmount: 50,
+      sellCondition: 'runningAverage',
+      sellUnit: 'U$',
+      sellAmount: 20,
+    });
+  });
 
   it('finds stock by user id', async() => {
     const response = await getAgent()
@@ -77,9 +77,9 @@ describe('Stock routes', () => {
       ticker: 'IBM',
       riskChoice: 'R0',
       startingAmount: 500,
-      startDate: '1-1-2020',
-      endDate: '3-30-2020',
-      frequency: 'TIME_SERIES_DAILY',
+      startDate: '2020/02/01',
+      endDate: '2020/03/01',
+      frequency: '1day',
       feePercent: 4,
       buyCondition: 'runningAverage',
       buyUnit: 'U$',
@@ -94,9 +94,9 @@ describe('Stock routes', () => {
       ticker: 'IBM',
       riskChoice: 'R0',
       startingAmount: 500,
-      startDate: '1-1-2020',
-      endDate: '3-30-2020',
-      frequency: 'TIME_SERIES_DAILY',
+      startDate: '2020/02/01',
+      endDate: '2020/03/01',
+      frequency: '1day',
       feePercent: 4,
       buyCondition: 'runningAverage',
       buyUnit: 'U$',
@@ -108,64 +108,64 @@ describe('Stock routes', () => {
     ]);
   });
 
-  // it('updates a stock', async() => {
-  //   const response = await getAgent()
-  //     .put('/api/v1/stocks/1')
-  //     .send({
-  //       ticker: 'IBM',
-  //       riskChoice: 'R0',
-  //       startingAmount: 500,
-  //       startDate: '1-1-2020',
-  //       endDate: '3-30-2020',
-  //       frequency: 'TIME_SERIES_DAILY',
-  //       feePercent: 4,
-  //       buyCondition: 'runningAverage',
-  //       buyUnit: 'U$',
-  //       buyAmount: 70,
-  //       sellCondition: 'runningAverage',
-  //       sellUnit: 'U$',
-  //       sellAmount: 50,
-  //     });
+  it('updates a stock', async() => {
+    const response = await getAgent()
+      .put('/api/v1/stocks/1')
+      .send({
+        ticker: 'IBM',
+        riskChoice: 'R0',
+        startingAmount: 500,
+        startDate: '2020/02/01',
+        endDate: '2020/03/01',
+        frequency: '1day',
+        feePercent: 4,
+        buyCondition: 'runningAverage',
+        buyUnit: 'U$',
+        buyAmount: 70,
+        sellCondition: 'runningAverage',
+        sellUnit: 'U$',
+        sellAmount: 50,
+      });
 
-  //   expect(response.body).toEqual({
-  //     userId: expect.any(String),
-  //     stockId: expect.any(String),
-  //     ticker: 'IBM',
-  //     riskChoice: 'R0',
-  //     startingAmount: 500,
-  //     startDate: '1-1-2020',
-  //     endDate: '3-30-2020',
-  //     frequency: 'TIME_SERIES_DAILY',
-  //     feePercent: 4,
-  //     buyCondition: 'runningAverage',
-  //     buyUnit: 'U$',
-  //     buyAmount: 70,
-  //     sellCondition: 'runningAverage',
-  //     sellUnit: 'U$',
-  //     sellAmount: 50,
-  //   });
-  // });
+    expect(response.body).toEqual({
+      userId: expect.any(String),
+      stockId: expect.any(String),
+      ticker: 'IBM',
+      riskChoice: 'R0',
+      startingAmount: 500,
+      startDate: '2020/02/01',
+      endDate: '2020/03/01',
+      frequency: '1day',
+      feePercent: 4,
+      buyCondition: 'runningAverage',
+      buyUnit: 'U$',
+      buyAmount: 70,
+      sellCondition: 'runningAverage',
+      sellUnit: 'U$',
+      sellAmount: 50,
+    });
+  });
 
-  // it('deletes a stock', async() => {
-  //   const response = await getAgent()
-  //     .delete('/api/v1/stocks/1');
+  it('deletes a stock', async() => {
+    const response = await getAgent()
+      .delete('/api/v1/stocks/1');
 
-  //   expect(response.body).toEqual({
-  //     userId: expect.any(String),
-  //     stockId: expect.any(String),
-  //     ticker: 'IBM',
-  //     riskChoice: 'R0',
-  //     startingAmount: 500,
-  //     startDate: '1-1-2020',
-  //     endDate: '3-30-2020',
-  //     frequency: 'TIME_SERIES_DAILY',
-  //     feePercent: 4,
-  //     buyCondition: 'runningAverage',
-  //     buyUnit: 'U$',
-  //     buyAmount: 50,
-  //     sellCondition: 'runningAverage',
-  //     sellUnit: 'U$',
-  //     sellAmount: 20,
-  //   });
-  // });
+    expect(response.body).toEqual({
+      userId: expect.any(String),
+      stockId: expect.any(String),
+      ticker: 'IBM',
+      riskChoice: 'R0',
+      startingAmount: 500,
+      startDate: '2020/02/01',
+      endDate: '2020/03/01',
+      frequency: '1day',
+      feePercent: 4,
+      buyCondition: 'runningAverage',
+      buyUnit: 'U$',
+      buyAmount: 50,
+      sellCondition: 'runningAverage',
+      sellUnit: 'U$',
+      sellAmount: 20,
+    });
+  });
 });

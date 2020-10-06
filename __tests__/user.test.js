@@ -5,8 +5,6 @@ const app = require('../lib/app');
 const UserService = require('../lib/services/user-service');
 const { getAgent } = require('../data/data_helper');
 
-// data-helpers import
-
 describe('Auth routes', () => {
   it('signup a user via POST', async() => {
     const response = await request(app)
@@ -45,23 +43,23 @@ describe('Auth routes', () => {
     });
   });
 
-  it.only('verifies a user via GET', async() => {
-    // const agent = request.agent(app);
-    // await agent
-    //   .post('/api/v1/auth/signup')
-    //   .send({
-    //     email: 'test@test.com',
-    //     password: 'password',
-    //     phoneNumber: '7078675309',
-    //   });
+  it('verifies a user via GET', async() => {
+    const agent = request.agent(app);
+    await agent
+      .post('/api/v1/auth/signup')
+      .send({
+        email: 'test1@test.com',
+        password: 'password1',
+        phoneNumber: '1078675309',
+      });
 
     const response = await getAgent()
       .get('/api/v1/auth/verify');
     
     expect(response.body).toEqual({
       userId: expect.any(String),
-      email: 'test@test.com',
-      phoneNumber: '7078675309',
+      email: 'test1@test.com',
+      phoneNumber: '1078675309',
       portfolio: [{}]
     });
 
