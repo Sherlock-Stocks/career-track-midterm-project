@@ -3,12 +3,11 @@ const pool = require('../lib/utils/pool');
 const request = require('supertest');
 const app = require('../lib/app');
 const UserService = require('../lib/services/user-service');
+const { getAgent } = require('../data/data_helper');
+
+// data-helpers import
 
 describe('Auth routes', () => {
-  beforeEach(() => {
-    return pool.query(fs.readFileSync('./sql/setup.sql', 'utf-8'));
-  });
-
   it('signup a user via POST', async() => {
     const response = await request(app)
       .post('/api/v1/auth/signup')
@@ -46,17 +45,17 @@ describe('Auth routes', () => {
     });
   });
 
-  it('verifies a user via GET', async() => {
-    const agent = request.agent(app);
-    await agent
-      .post('/api/v1/auth/signup')
-      .send({
-        email: 'test@test.com',
-        password: 'password',
-        phoneNumber: '7078675309',
-      });
+  it.only('verifies a user via GET', async() => {
+    // const agent = request.agent(app);
+    // await agent
+    //   .post('/api/v1/auth/signup')
+    //   .send({
+    //     email: 'test@test.com',
+    //     password: 'password',
+    //     phoneNumber: '7078675309',
+    //   });
 
-    const response = await agent
+    const response = await getAgent()
       .get('/api/v1/auth/verify');
     
     expect(response.body).toEqual({
