@@ -54,6 +54,7 @@ describe('Auth routes', () => {
 
     const response = await getAgent()
       .get('/api/v1/auth/verify');
+    
     expect(response.body).toEqual({
       userId: expect.any(String),
       email: 'test1@test.com',
