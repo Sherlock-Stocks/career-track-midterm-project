@@ -8,6 +8,7 @@ beforeEach(() => {
   return pool.query(fs.readFileSync('./sql/setup.sql', 'utf-8'));
 });
 
+afterAll(() => pool.end());
 beforeEach(() => {
   return seed();
 });
