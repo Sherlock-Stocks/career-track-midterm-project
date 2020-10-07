@@ -1,15 +1,11 @@
-const fs = require('fs');
-const pool = require('../lib/utils/pool');
+
 const request = require('supertest');
 const app = require('../lib/app');
 const UserService = require('../lib/services/user-service');
+const { getAgent } = require('../data/data_helper');
 
 describe('Auth routes', () => {
-  beforeEach(() => {
-    return pool.query(fs.readFileSync('./sql/setup.sql', 'utf-8'));
-  });
-
-  it('signup a user via POST', async() => {
+  it('signup a user via POST', async () => {
     const response = await request(app)
       .post('/api/v1/auth/signup')
       .send({
@@ -24,8 +20,8 @@ describe('Auth routes', () => {
       phoneNumber: '7078675309',
     });
   });
-  
-  it('logs in a user via POST', async() => {
+
+  it('logs in a user via POST', async () => {
     const user = await UserService.create({
       email: 'test@test.com',
       password: 'password',
@@ -46,23 +42,24 @@ describe('Auth routes', () => {
     });
   });
 
-  it('verifies a user via GET', async() => {
+  it('verifies a user via GET', async () => {
     const agent = request.agent(app);
     await agent
       .post('/api/v1/auth/signup')
       .send({
-        email: 'test@test.com',
-        password: 'password',
-        phoneNumber: '7078675309',
+        email: 'test1@test.com',
+        password: 'password1',
+        phoneNumber: '1078675309',
       });
 
-    const response = await agent
+    const response = await getAgent()
       .get('/api/v1/auth/verify');
 
     expect(response.body).toEqual({
       userId: expect.any(String),
-      email: 'test@test.com',
-      phoneNumber: '7078675309',
+      email: 'test1@test.com',
+      phoneNumber: '1078675309',
+      portfolio: []
     });
 
     const responseWithoutAUser = await request(app)
