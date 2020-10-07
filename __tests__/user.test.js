@@ -5,7 +5,7 @@ const UserService = require('../lib/services/user-service');
 const { getAgent } = require('../data/data_helper');
 
 describe('Auth routes', () => {
-  it('signup a user via POST', async() => {
+  it('signup a user via POST', async () => {
     const response = await request(app)
       .post('/api/v1/auth/signup')
       .send({
@@ -20,8 +20,8 @@ describe('Auth routes', () => {
       phoneNumber: '7078675309',
     });
   });
-  
-  it('logs in a user via POST', async() => {
+
+  it('logs in a user via POST', async () => {
     const user = await UserService.create({
       email: 'test@test.com',
       password: 'password',
@@ -42,7 +42,7 @@ describe('Auth routes', () => {
     });
   });
 
-  it('verifies a user via GET', async() => {
+  it('verifies a user via GET', async () => {
     const agent = request.agent(app);
     await agent
       .post('/api/v1/auth/signup')
@@ -54,12 +54,11 @@ describe('Auth routes', () => {
 
     const response = await getAgent()
       .get('/api/v1/auth/verify');
-    
     expect(response.body).toEqual({
       userId: expect.any(String),
       email: 'test1@test.com',
       phoneNumber: '1078675309',
-      portfolio: ['output one put this on the first line', 'output two put this on the second line']
+      portfolio: []
     });
 
     const responseWithoutAUser = await request(app)
