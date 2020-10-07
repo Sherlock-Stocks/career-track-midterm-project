@@ -59,7 +59,7 @@ describe('Auth routes', () => {
       userId: expect.any(String),
       email: 'test1@test.com',
       phoneNumber: '1078675309',
-      portfolio: ['for your IBM stock, your ending equity is 1028.0852176691799', 'for your IBM stock, your ending equity is 1028.0852176691799']
+      portfolio: []
     });
 
     const responseWithoutAUser = await request(app)
