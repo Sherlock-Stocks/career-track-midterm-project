@@ -22,6 +22,32 @@ beforeEach(() => {
     });
 });
 
+<<<<<<< HEAD
 module.exports = {
   getAgent: () => agent
 };
+=======
+beforeEach(() => {
+  return agent
+    .post('/api/v1/stocks')
+    .send({
+      ticker: 'IBM',
+      riskChoice: 'R0',
+      startingAmount: 500,
+      startDate: '1-1-2020',
+      endDate: '3-30-2020',
+      frequency: 'TIME_SERIES_DAILY',
+      feePercent: 4,
+      buyCondition: 'runningAverage',
+      buyUnit: 'U$',
+      buyAmount: 50,
+      sellCondition: 'runningAverage',
+      sellUnit: 'U$',
+      sellAmount: 20,
+    });
+});
+
+module.exports = {
+  getAgent: () => agent
+};
+>>>>>>> 5dc662c90179c91e592fe1c713bc44505d59fee8
