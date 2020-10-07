@@ -20,3 +20,4 @@ jobs:
         DATABASE_URL: postgres://alchemy:alchemy@postgres:5432/alchemy
         APP_SECRET: our_whispering_snakecase_secretsss
         SALT_ROUNDS: 4
+        API_KEY: 96c6621df76c4ab19fdd2d1e821d0c0e
