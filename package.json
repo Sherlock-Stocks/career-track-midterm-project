@@ -1,6 +1,9 @@
 {
   "name": "alchemy-app",
   "version": "1.0.0",
+  "engines": {
+    "node": "14.x"
+  },
   "description": "",
   "main": "server.js",
   "scripts": {
@@ -35,8 +38,5 @@
     "jsonwebtoken": "^8.5.1",
     "node-fetch": "^2.6.1",
     "pg": "^8.3.3"
-  },
-  "engines": {
-    "node": "14.13.1"
   }
 }
