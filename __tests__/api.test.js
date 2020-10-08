@@ -12,6 +12,5 @@ describe('api-calls routes', () => {
       });
       
     expect(apiCall.text).toEqual(expect.any(String));
-    //not working on github expect(apiCall.text).toEqual('{"meta":{"symbol":"TSLA","interval":"1day","currency":"USD","exchange_timezone":"America/New_York","exchange":"NASDAQ","type":"Common Stock"},"values":[{"datetime":"2020-02-03","open":"134.73800","high":"157.22800","low":"134.70400","close":"156.00000","volume":"47233500"}],"status":"ok"}');
   });
 });
