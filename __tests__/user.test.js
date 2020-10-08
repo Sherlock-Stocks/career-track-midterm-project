@@ -5,7 +5,7 @@ const UserService = require('../lib/services/user-service');
 const { getAgent } = require('../data/data_helper');
 
 describe('Auth routes', () => {
-  it('signup a user via POST', async () => {
+  it('signup a user via POST', async() => {
     const response = await request(app)
       .post('/api/v1/auth/signup')
       .send({
@@ -21,7 +21,7 @@ describe('Auth routes', () => {
     });
   });
 
-  it('logs in a user via POST', async () => {
+  it('logs in a user via POST', async() => {
     const user = await UserService.create({
       email: 'test@test.com',
       password: 'password',
@@ -42,7 +42,7 @@ describe('Auth routes', () => {
     });
   });
 
-  it('verifies a user via GET', async () => {
+  it('verifies a user via GET', async() => {
     const agent = request.agent(app);
     await agent
       .post('/api/v1/auth/signup')
