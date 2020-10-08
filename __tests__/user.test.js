@@ -1,4 +1,3 @@
-
 const request = require('supertest');
 const app = require('../lib/app');
 const UserService = require('../lib/services/user-service');
@@ -59,7 +58,7 @@ describe('Auth routes', () => {
       userId: expect.any(String),
       email: 'test1@test.com',
       phoneNumber: '1078675309',
-      portfolio: []
+      portfolio: expect.any(Object)
     });
 
     const responseWithoutAUser = await request(app)
