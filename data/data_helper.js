@@ -20,9 +20,6 @@ beforeEach(() => {
     .send({
       email: 'test1@test.com',
       password: 'password1'
-    })
-    .then(res => {
-      console.log(res.body);
     });
 });
 
